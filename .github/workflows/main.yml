@@ -29,12 +29,8 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: build 1
-        run: cmake -Bbuild .
+        run: cmake .
       - name: build 2
-        run:  cmake --build build/ --target test
-      - name: build 3
-        run: ./build/test
-      - name: build 4
         run:  make
-      - name: build 5
+      - name: build 3
         run:  ./test
