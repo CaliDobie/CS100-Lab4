@@ -24,13 +24,17 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+        with:  
+                submodules: recursive
 
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: build 1
+        run: cmake -Bbuild .
+      - name: build 2
+        run:  cmake --build build/ --target test
+      - name: build 3
+        run: ./build/test
+      - name: build 4
+        run:  make
+      - name: build 5
+        run:  ./test
